@@ -2,4 +2,4 @@
 Group Project 1
 
 
-This read me sucks
+This read me bad
