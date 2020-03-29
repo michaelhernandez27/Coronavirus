@@ -13,6 +13,7 @@ $("#food-search").on("click", function (e) {
         console.log(response);
         $("#new").text(response.hits[0].fields.brand_name);
         $("#item").text(response.hits[0].fields.item_name);
+        $("#serving-size").text(response.hits[0].fields.nf_serving_size_unit + ' size: ' + response.hits[0].fields.nf_serving_size_qty);
         $("#calories").text('Calories: ' + response.hits[0].fields.nf_calories);
     })
 
@@ -21,6 +22,14 @@ $("#food-search").on("click", function (e) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+        var img = $("<img>");
+        var list = $("<ul>");
+        $("#recipe-name").text(response.hits[0].recipe.label);
+
+        //------Fix image
+        //img.attr("src", 'response.hits[0].recipe.image');
+        //$("#recipe-img").appendTo(img);
+        //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
     })
 
     

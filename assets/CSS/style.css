@@ -1,0 +1,33 @@
+h1 {
+    border: 1px solid black;
+    text-align: center;
+    height: 200px;
+}
+
+.facts-container {
+    border: 1px solid black;
+    height: inherit;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.recipe-container {
+    border: 1px solid black;
+    height: inherit;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+#food-input {
+    width: 65%;
+}
+
+#food-form {
+    margin-top: 50px;
+    text-align: center;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
