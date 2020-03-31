@@ -25,6 +25,7 @@ $("#food-search").on("click", function (e) {
         var img = $("#recipe-img");
         $("#recipe-name").text(response.hits[0].recipe.label);
 
+
         var ingredients = response.hits[0].recipe.ingredientLines;
         //console.log(ingredients);
         $("#ingredients").text("Ingredients: " + ingredients);
@@ -35,6 +36,47 @@ $("#food-search").on("click", function (e) {
         img.html($("#recipe-img"));
         //$("#recipe-img").appendTo(img);
         //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
+
+        var recipeHits = response.hits
+
+        console.log(recipeHits)
+
+        for (i = 0; i < recipeHits.length; i++) {
+
+            var recipe = recipeHits[i].recipe.ingredientLines
+
+            console.log(recipe)
+
+            var recipeS = $("<div>")
+
+            $(recipeS).addClass("recipies");
+
+            var recipeSpecific = recipeS.text(recipe)
+
+            $("#ingredients").append(recipeSpecific)
+
+            $(recipeS).hide();
+
+            var buttonS = $("<button>")
+
+            $("#ingredients").append(buttonS)
+
+            buttonS.on("click", function() {
+
+                $(recipeS).show();
+
+            });
+
+        };
+
+     
+        //------Fix image
+
+
+        img.attr("src", 'response.hits[0].recipe.image');
+        $("#recipe-img").appendTo(img);
+        $("#recipe-img").attr("src", 'response.hits[0].recipe.image');
+
     })
 
     
