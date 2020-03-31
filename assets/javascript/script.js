@@ -26,10 +26,45 @@ $("#food-search").on("click", function (e) {
         var list = $("<ul>");
         $("#recipe-name").text(response.hits[0].recipe.label);
 
+        var recipeHits = response.hits
+
+        console.log(recipeHits)
+
+        for (i = 0; i < recipeHits.length; i++) {
+
+            var recipe = recipeHits[i].recipe.ingredientLines
+
+            console.log(recipe)
+
+            var recipeS = $("<div>")
+
+            $(recipeS).addClass("recipies");
+
+            var recipeSpecific = recipeS.text(recipe)
+
+            $("#ingredients").append(recipeSpecific)
+
+            $(recipeS).hide();
+
+            var buttonS = $("<button>")
+
+            $("#ingredients").append(buttonS)
+
+            buttonS.on("click", function() {
+
+                $(recipeS).show();
+
+            });
+
+        };
+
+     
         //------Fix image
-        //img.attr("src", 'response.hits[0].recipe.image');
-        //$("#recipe-img").appendTo(img);
-        //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
+
+
+        img.attr("src", 'response.hits[0].recipe.image');
+        $("#recipe-img").appendTo(img);
+        $("#recipe-img").attr("src", 'response.hits[0].recipe.image');
     })
 
     
