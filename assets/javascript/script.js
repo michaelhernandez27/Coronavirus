@@ -22,12 +22,17 @@ $("#food-search").on("click", function (e) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        var img = $("<img>");
-        var list = $("<ul>");
+        var img = $("#recipe-img");
         $("#recipe-name").text(response.hits[0].recipe.label);
 
+        var ingredients = response.hits[0].recipe.ingredientLines;
+        //console.log(ingredients);
+        $("#ingredients").text("Ingredients: " + ingredients);
+
         //------Fix image
-        //img.attr("src", 'response.hits[0].recipe.image');
+        var image = response.hits[0].recipe.image;
+        img.attr("src", image);
+        img.html($("#recipe-img"));
         //$("#recipe-img").appendTo(img);
         //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
     })
