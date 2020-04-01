@@ -27,17 +27,19 @@ $("#food-search").on("click", function (e) {
         var img = $("<img>");
         $("#recipe-name").text(response.hits[0].recipe.label);
 
+
         var ingredients = response.hits[0].recipe.ingredientLines;
         //console.log(ingredients);
         $("#ingredients").text("Ingredients: " + ingredients);
 
         var image = response.hits[0].recipe.image;
         img.attr("src", image);
-<<<<<<< Updated upstream
+
         img.html($("#recipe-img"));
         //$("#recipe-img").appendTo(img);
         //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
-=======
+
+
         $("#recipe-img").html(img);
 
         var recipeHits = response.hits;
@@ -60,7 +62,89 @@ $("#food-search").on("click", function (e) {
             btnsVal = $(this).val();
             $("#more-recipes").text(btnsVal);
         })
->>>>>>> Stashed changes
+
+
+
+        var recipeHits = response.hits
+
+        console.log(recipeHits)
+
+        var correctData = {
+
+            state: 0,
+
+        }
+
+        
+
+        for (i = 0; i < recipeHits.length; i++) {
+
+            var recipe = recipeHits[i].recipe.ingredientLines
+
+            var img = recipeHits[i].recipe.image
+
+            var imgDiv = $("<img>").attr("src", img)
+
+            console.log("Recipe " + i + " is " + recipe)
+
+            var recipeS = $("<div>")
+
+            recipeS.append(imgDiv);
+
+            recipeS.attr('id', 'recipe' + i);
+
+            recipeS.attr("data-state", i);
+
+            $(recipeS).addClass("recipies");
+
+            recipeS.text(recipe)
+
+            $("#ingredients").append(recipeS)
+
+            recipeS.hide();
+
+            var buttonS = $("<button>")
+
+            buttonS.text("Click for a Different Recipe")
+
+            buttonS.attr("id", i)
+
+            $("#ingredients").append(buttonS)
+
+            var correctData = recipeS.data();
+
+            console.log(correctData)
+
+             buttonS.on("click", function() {
+
+                 var ID = $(this).attr("id")
+                 console.log(ID)
+
+                 $(".recipes").hide();
+
+                 $('#recipe' + ID).show();
+
+
+                //recipeS.show();
+            });
+
+
+
+
+
+        
+    
+
+
+
+        };
+
+       
+
+     
+     
+
+
     })
 
 
