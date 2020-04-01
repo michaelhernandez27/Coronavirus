@@ -1,4 +1,5 @@
 $("#food-search").on("click", function (e) {
+    $("#more-recipes").empty();
     e.preventDefault();
     var searchBar = $("#food-input").val();
     var recipeID = '2933c992';
@@ -34,10 +35,7 @@ $("#food-search").on("click", function (e) {
 
         var image = response.hits[0].recipe.image;
         img.attr("src", image);
-
-        img.html($("#recipe-img"));
-        //$("#recipe-img").appendTo(img);
-        //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
+        $("#recipe-img").html(img);
 
 
         $("#recipe-img").html(img);
@@ -56,6 +54,7 @@ $("#food-search").on("click", function (e) {
             btns.attr("data-name", i + 1);
             console.log(btns.val(inArr[i]));
             $("#ingredients").append(btns);
+            btns.text(recipeHits[i].recipe.label);
         };
 
         $(".ingArr").on("click", function () {
@@ -63,89 +62,5 @@ $("#food-search").on("click", function (e) {
             $("#more-recipes").text(btnsVal);
         })
 
-
-
-        var recipeHits = response.hits
-
-        console.log(recipeHits)
-
-        var correctData = {
-
-            state: 0,
-
-        }
-
-        
-
-        for (i = 0; i < recipeHits.length; i++) {
-
-            var recipe = recipeHits[i].recipe.ingredientLines
-
-            var img = recipeHits[i].recipe.image
-
-            var imgDiv = $("<img>").attr("src", img)
-
-            console.log("Recipe " + i + " is " + recipe)
-
-            var recipeS = $("<div>")
-
-            recipeS.append(imgDiv);
-
-            recipeS.attr('id', 'recipe' + i);
-
-            recipeS.attr("data-state", i);
-
-            $(recipeS).addClass("recipies");
-
-            recipeS.text(recipe)
-
-            $("#ingredients").append(recipeS)
-
-            recipeS.hide();
-
-            var buttonS = $("<button>")
-
-            buttonS.text("Click for a Different Recipe")
-
-            buttonS.attr("id", i)
-
-            $("#ingredients").append(buttonS)
-
-            var correctData = recipeS.data();
-
-            console.log(correctData)
-
-             buttonS.on("click", function() {
-
-                 var ID = $(this).attr("id")
-                 console.log(ID)
-
-                 $(".recipes").hide();
-
-                 $('#recipe' + ID).show();
-
-
-                //recipeS.show();
-            });
-
-
-
-
-
-        
-    
-
-
-
-        };
-
-       
-
-     
-     
-
-
     })
-
-
 });
