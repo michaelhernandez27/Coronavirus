@@ -28,15 +28,19 @@ $("#food-search").on("click", function (e) {
 
         var ingredients = response.hits[0].recipe.ingredientLines;
         //console.log(ingredients);
-        $("#ingredients").text("Ingredients: " + ingredients);
-
+        var firstRecipe = $("<div>")
+        $(firstRecipe).addClass("recipies");
+        firstRecipe.text("Ingredients: " + ingredients);
+        
+        $("#ingredients").append(firstRecipe)
+        
         //------Fix image
         var image = response.hits[0].recipe.image;
         img.attr("src", image);
         img.html($("#recipe-img"));
         //$("#recipe-img").appendTo(img);
         //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
-
+        //$("#recipe-img").addClass("recipies");
         var recipeHits = response.hits
 
         console.log(recipeHits)
@@ -69,7 +73,7 @@ $("#food-search").on("click", function (e) {
 
             $(recipeS).addClass("recipies");
 
-            recipeS.text(recipe)
+            recipeS.text("Ingredients: " + recipe)
 
             $("#ingredients").append(recipeS)
 
@@ -81,7 +85,7 @@ $("#food-search").on("click", function (e) {
 
             buttonS.attr("id", i)
 
-            $("#ingredients").append(buttonS)
+            $("#buttons").append(buttonS)
 
             var correctData = recipeS.data();
 
@@ -92,7 +96,7 @@ $("#food-search").on("click", function (e) {
                  var ID = $(this).attr("id")
                  console.log(ID)
 
-                 $(".recipes").hide();
+                 $('.recipies').hide();
 
                  $('#recipe' + ID).show();
 
