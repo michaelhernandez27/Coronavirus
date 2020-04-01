@@ -1,33 +1,62 @@
+body {
+    background-image: url(../images/dose-juice-sTPy-oeA3h0-unsplash.jpg);
+    background-size: cover;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.694);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: inherit;
+}
+
 h1 {
-    border: 1px solid black;
     text-align: center;
-    height: 200px;
+    font-family: "Gotu", sans-serif;
+    font-size: 75px;
+    color: rgba(72, 140, 4, 0.577);
 }
 
 .facts-container {
-    border: 1px solid black;
+    border: 5px solid rgba(74, 143, 4, 0.577);
+    background-color: rgba(255, 255, 255, 0.755);
+    border-radius: 5px;
     height: inherit;
-    margin-top: 40px;
+    margin-top: 10px;
+}
+
+.facts-info {
     padding: 10px;
 }
 
 .recipe-container {
-    border: 1px solid black;
+    border: 5px solid rgba(74, 143, 4, 0.577);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.755);
     height: inherit;
-    margin-top: 40px;
-    padding: 10px;
+    margin-top: 10px;
 }
 
-#food-input {
-    width: 65%;
+.recipe-info {
+    padding: 10px;
 }
 
 #food-form {
     margin-top: 50px;
-    text-align: center;
+}
+
+#food-input {
+    border-radius: 5px;
 }
 
 img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
+    border: 5px solid rgba(74, 143, 4, 0.577);
+    border-radius: 5px;
+}
+
+p {
+    background-color: rgba(74, 143, 4, 0.577);
+    margin: 0px;
 }
