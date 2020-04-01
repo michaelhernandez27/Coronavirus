@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/CSS/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/CSS/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Gotu&display=swap" rel="stylesheet">
     <title>Nutrition</title>
 </head>
 
@@ -16,42 +16,49 @@
         <div class="row">
             <div class="col-md-12">
                 <header>
-                    <h1>Nutrition Facts</h1>
+                    <h1>Nutrition Facts and Recipes</h1>
                 </header>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form id="food-form">
-                    <input id="food-search" type="submit" value="Search Food!">
-                    <input type="text" value="bananas" id="food-input">
+                    <input id="food-search" type="submit" value="Search">
+                    <input type="text" placeholder="Enter a food.." id="food-input">
+
                 </form>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="facts-container">
-                    <div id="new"></div>
-                    <div id="item"></div>
-                    <div id="serving-size"></div>
-                    <div id="calories"></div>
+                    <div class="facts-head">
+                        <p>Calories per serving</p>
+                    </div>
+                    <div class="facts-info">
+                        <div id="new"></div>
+                        <div id="item"></div>
+                        <div id="serving-size"></div>
+                        <div id="calories"></div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="recipe-container">
-                    <div id="recipe-name"></div>
-                    <img id="recipe-img">
-                    <div id="ingredients">
-
-
-
+                    <div class="recipe-head">
+                        <p>Recipes</p>
                     </div>
-
-                    <div id="calories"></div>
-                    <div id="fat"></div>
-                    <div id="carbs"></div>
-                    <div id="sugar"></div>
-                    <div id="salt"></div>
+                    <div class="recipe-info">
+                        <div id="recipe-name"></div>
+                        <div id="recipe-img"></div>
+                        <div id="ingredients"></div>
+                        <div id="more-recipes"></div>
+                        <div id="calories"></div>
+                        <div id="fat"></div>
+                        <div id="carbs"></div>
+                        <div id="sugar"></div>
+                        <div id="salt"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,8 +68,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="assets/javascript/script.js"></script>
 </body>
 

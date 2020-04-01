@@ -1,10 +1,12 @@
 $("#food-search").on("click", function (e) {
     e.preventDefault();
     var searchBar = $("#food-input").val();
-    var recipeID = '2933c992'
-    var recipeAPI = '4d4e90b1760457d583f7cecccac51226'
+    var recipeID = '2933c992';
+    var calorieID = '64bab3d8';
+    var calorieAPI = '5e640a56fafd8fd36515fd159e427358'
+    var recipeAPI = '4d4e90b1760457d583f7cecccac51226';
     var recipeURL = "https://api.edamam.com/search?q=" + searchBar + "&app_id=" + recipeID + "&app_key=" + recipeAPI;
-    var queryURL = 'https://api.nutritionix.com/v1_1/search/' + searchBar + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=64bab3d8&appKey=5e640a56fafd8fd36515fd159e427358';
+    var queryURL = 'https://api.nutritionix.com/v1_1/search/' + searchBar + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=' + calorieID + '&appKey=' + calorieAPI;
 
     $.ajax({
         url: queryURL,
@@ -22,7 +24,7 @@ $("#food-search").on("click", function (e) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        var img = $("#recipe-img");
+        var img = $("<img>");
         $("#recipe-name").text(response.hits[0].recipe.label);
 
 
@@ -30,12 +32,38 @@ $("#food-search").on("click", function (e) {
         //console.log(ingredients);
         $("#ingredients").text("Ingredients: " + ingredients);
 
-        //------Fix image
         var image = response.hits[0].recipe.image;
         img.attr("src", image);
+
         img.html($("#recipe-img"));
         //$("#recipe-img").appendTo(img);
         //$("#recipe-img").attr("src", 'response.hits[0].recipe.image');
+
+
+        $("#recipe-img").html(img);
+
+        var recipeHits = response.hits;
+        var inArr = [];
+
+        for (var i = 0; i < recipeHits.length; i++) {
+            var recipes = recipeHits[i].recipe.ingredientLines;
+            console.log(recipes);
+            inArr.push(recipes);
+
+            var btns = $("<button>");
+
+            btns.addClass("ingArr");
+            btns.attr("data-name", i + 1);
+            console.log(btns.val(inArr[i]));
+            $("#ingredients").append(btns);
+        };
+
+        $(".ingArr").on("click", function () {
+            btnsVal = $(this).val();
+            $("#more-recipes").text(btnsVal);
+        })
+
+
 
         var recipeHits = response.hits
 
@@ -116,7 +144,8 @@ $("#food-search").on("click", function (e) {
      
      
 
+
     })
 
-    
+
 });
