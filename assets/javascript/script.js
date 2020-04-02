@@ -1,5 +1,6 @@
 $("#food-search").on("click", function (e) {
     $("#more-recipes").empty();
+    $("#moreIngredients").empty();
     e.preventDefault();
     var searchBar = $("#food-input").val();
     var recipeID = '2933c992';
@@ -65,7 +66,7 @@ $("#food-search").on("click", function (e) {
             btns.attr("data-name", i + 1);
             btns.attr("data-label", labels);
             console.log(btns.val(inArr[i]));
-            $("#ingredients").append(btns);
+            $("#moreIngredients").append(btns);
             btns.text(recipeHits[i].recipe.label);
 
 
