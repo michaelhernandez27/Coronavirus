@@ -63,4 +63,7 @@ p {
 
 .ingArr {
     margin: 2px;
+    box-shadow: 1px 1px #f5f56b, 2px 2px #f5f56bd6, 3px 3px #f5f56bd6;
+    transform: translateX(-3px);
+        
 }

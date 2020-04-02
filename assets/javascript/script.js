@@ -37,14 +37,14 @@ $("#food-search").on("click", function (e) {
         img.attr("src", image);
         $("#recipe-img").html(img);
 
-
-        $("#recipe-img").html(img);
-
         var recipeHits = response.hits;
         var inArr = [];
 
         for (var i = 0; i < recipeHits.length; i++) {
             var recipes = recipeHits[i].recipe.ingredientLines;
+            var labels = recipeHits[i].recipe.label;
+            var images = recipeHits[i].recipe.image;
+            console.log(labels);
             console.log(recipes);
             inArr.push(recipes);
 
@@ -52,15 +52,18 @@ $("#food-search").on("click", function (e) {
 
             btns.addClass("ingArr");
             btns.attr("data-name", i + 1);
+            btns.attr("data-label", labels);
             console.log(btns.val(inArr[i]));
             $("#ingredients").append(btns);
             btns.text(recipeHits[i].recipe.label);
+        
+
+            $(".ingArr").on("click", function () {
+                btnsVal = $(this).val();
+                btnsLabel = $(this).attr("data-label");
+                $("#more-recipes").text(btnsVal);
+                $("#more-names").text(btnsLabel);
+            })
         };
-
-        $(".ingArr").on("click", function () {
-            btnsVal = $(this).val();
-            $("#more-recipes").text(btnsVal);
-        })
-
     })
 });
