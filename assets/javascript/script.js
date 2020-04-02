@@ -64,3 +64,22 @@ $("#food-search").on("click", function (e) {
 
     })
 });
+
+number = 10;
+
+countdownInterval = setInterval(decrement, 1000);
+
+function decrement() {
+
+    
+    number--;
+
+ 
+  
+  
+   if (number === 0) {
+
+    $(".starWars").hide();
+
+   };
+};
