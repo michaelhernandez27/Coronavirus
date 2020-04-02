@@ -42,6 +42,15 @@ $("#food-search").on("click", function (e) {
 
         for (var i = 0; i < recipeHits.length; i++) {
             var recipes = recipeHits[i].recipe.ingredientLines;
+            var foodImg = recipeHits[i].recipe.image
+            var imgDiv = $("<img>")
+            imgDiv.attr("src", foodImg)
+            imgDiv.attr('id', 'image' + i)
+            imgDiv.attr("class", "foodImages")
+            $("#moreIngredients").append(imgDiv);
+            imgDiv.hide();
+
+
             var labels = recipeHits[i].recipe.label;
             var images = recipeHits[i].recipe.image;
             console.log(labels);
@@ -49,6 +58,8 @@ $("#food-search").on("click", function (e) {
             inArr.push(recipes);
 
             var btns = $("<button>");
+
+            btns.attr("id", i)
 
             btns.addClass("ingArr");
             btns.attr("data-name", i + 1);
@@ -59,6 +70,12 @@ $("#food-search").on("click", function (e) {
         
 
             $(".ingArr").on("click", function () {
+
+                var ID = $(this).attr("id")
+                 console.log(ID)
+                 $(".foodImages").hide();
+                $('#image' + ID).show();
+                $("#recipe-img").append(imgDiv);
                 btnsVal = $(this).val();
                 btnsLabel = $(this).attr("data-label");
                 $("#more-recipes").text(btnsVal);
