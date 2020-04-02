@@ -64,7 +64,7 @@ p {
 .ingArr {
     margin: 2px;
 
-    box-shadow: 1px 1px #f5f56b, 2px 2px #f5f56bd6, 3px 3px #f5f56bd6;
+    box-shadow: 1px 1px #9f9c92e0, 2px 2px #9f9c92e0, 3px 3px #9f9c92e0;
     transform: translateX(-3px);
         
 
@@ -73,8 +73,9 @@ p {
 
 .starWars {
 
-    color: rgba(255, 0, 255, 0.63);
-    font-size: 75px;
+    color: rgba(255, 0, 255, 0.543);
+    font-size: 50px;
+    text-align: center;
 
 
 }

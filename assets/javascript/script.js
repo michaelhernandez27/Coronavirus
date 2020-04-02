@@ -47,7 +47,7 @@ $("#food-search").on("click", function (e) {
             imgDiv.attr("src", foodImg)
             imgDiv.attr('id', 'image' + i)
             imgDiv.attr("class", "foodImages")
-            $("#moreIngredients").append(imgDiv);
+            $("#more-imgs").append(imgDiv);
             imgDiv.hide();
 
 
@@ -67,13 +67,13 @@ $("#food-search").on("click", function (e) {
             console.log(btns.val(inArr[i]));
             $("#ingredients").append(btns);
             btns.text(recipeHits[i].recipe.label);
-        
+
 
             $(".ingArr").on("click", function () {
 
                 var ID = $(this).attr("id")
-                 console.log(ID)
-                 $(".foodImages").hide();
+                console.log(ID)
+                $(".foodImages").hide();
                 $('#image' + ID).show();
                 $("#recipe-img").append(imgDiv);
                 btnsVal = $(this).val();
@@ -91,15 +91,15 @@ countdownInterval = setInterval(decrement, 1000);
 
 function decrement() {
 
-    
+
     number--;
 
- 
-  
-  
-   if (number === 0) {
 
-    $(".starWars").hide();
 
-   };
+
+    if (number === 0) {
+
+        $(".starWars").hide();
+
+    };
 };
