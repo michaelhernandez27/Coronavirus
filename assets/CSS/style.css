@@ -10,7 +10,7 @@ header {
     height: inherit;
 }
 
-h1 {
+#heads {
     text-align: center;
     font-family: "Gotu", sans-serif;
     font-size: 75px;
