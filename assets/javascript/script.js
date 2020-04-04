@@ -1,6 +1,8 @@
 $("#food-search").on("click", function (e) {
     $("#more-recipes").empty();
     $("#moreIngredients").empty();
+    $("#more-names").empty();
+    $("#more-imgs").empty();
     e.preventDefault();
     var searchBar = $("#food-input").val();
     var recipeID = '2933c992';
@@ -76,7 +78,6 @@ $("#food-search").on("click", function (e) {
                 console.log(ID)
                 $(".foodImages").hide();
                 $('#image' + ID).show();
-                $("#recipe-img").append(imgDiv);
                 btnsVal = $(this).val();
                 btnsLabel = $(this).attr("data-label");
                 $("#more-recipes").text(btnsVal);
@@ -86,21 +87,13 @@ $("#food-search").on("click", function (e) {
     })
 });
 
-number = 10;
-
-countdownInterval = setInterval(decrement, 1000);
+var number = 10;
+var countdownInterval = setInterval(decrement, 1000);
 
 function decrement() {
-
-
     number--;
 
-
-
-
     if (number === 0) {
-
         $(".starWars").hide();
-
     };
 };
