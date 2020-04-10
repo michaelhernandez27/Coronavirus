@@ -1,12 +1,5 @@
 # Coronavirus
 Group Project 1
-
-
-Pourg Tcejorp 1
-
-
-please work
-
-DON'T GET THE CORONAVIRUS!!!!!!!!!
+https://michaelhernandez27.github.io/Group-Project-1-Food-Fun/
 
 
